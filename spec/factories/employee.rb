@@ -19,5 +19,10 @@ FactoryBot.define do
     factory :admin do
       role { 3 }
     end
+
+    factory :hr_employee do
+      role { 1 }
+      department { "Human Resources" }
+    end
   end
 end
