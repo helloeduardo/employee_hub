@@ -15,4 +15,32 @@ describe 'Dashboard' do
       expect(page).to have_content(employee.manager.name)
     end
   end
+
+  describe 'As a manager' do
+    it 'I see my info and a link to view all supervisees' do
+      employee = create(:manager)
+      supervisee_1 = create(:employee, manager: employee)
+      supervisee_2 = create(:employee, manager: employee)
+      not_a_supervisee = create(:employee, :with_manager)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_employee).and_return(employee)
+
+      visit '/dashboard'
+
+      expect(page).to have_content("#{employee.name}'s Dashboard")
+      expect(page).to have_content(employee.email)
+      expect(page).to have_content(employee.salary)
+      expect(page).to have_content(employee.vacation_balance)
+      expect(page).to have_content(employee.annual_bonus)
+      expect(page).to have_content(employee.department)
+
+      click_link('View Supervisees')
+
+      expect(current_path).to eq('/manager/employees')
+
+      expect(page).to have_content(supervisee_1.name)
+      expect(page).to have_content(supervisee_2.name)
+      expect(page).to_not have_content(not_a_supervisee.name)
+    end
+  end
 end
