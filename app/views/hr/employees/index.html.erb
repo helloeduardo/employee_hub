@@ -1,0 +1,10 @@
+<h1>All Non-HR Employees</h1>
+
+<ul>
+  <% @employees.each do |employee| %>
+    <li>
+      <p><%= employee.name %></p>
+      <p><%= link_to 'View details', hr_employee_path(employee.id) %></p>
+    </li>
+  <% end %>
+</ul>

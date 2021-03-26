@@ -70,4 +70,31 @@ describe 'Dashboard' do
       expect(page).to have_content(employee_3.name)
     end
   end
+
+  describe 'As an HR Employee' do
+    it 'I see my info and a link to view all employees' do
+      employee = create(:hr_employee)
+      employee_2 = create(:hr_employee)
+      employee_3 = create(:employee)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_employee).and_return(employee)
+
+      visit '/dashboard'
+
+      expect(page).to have_content("#{employee.name}'s Dashboard")
+      expect(page).to have_content(employee.email)
+      expect(page).to have_content(employee.salary)
+      expect(page).to have_content(employee.vacation_balance)
+      expect(page).to have_content(employee.annual_bonus)
+      expect(page).to have_content(employee.department)
+
+      click_link('View Non-HR Employees')
+
+      expect(current_path).to eq('/hr/employees')
+
+      expect(page).to_not have_content(employee.name)
+      expect(page).to_not have_content(employee_2.name)
+      expect(page).to have_content(employee_3.name)
+    end
+  end
 end

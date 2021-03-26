@@ -10,4 +10,8 @@ class Employee < ApplicationRecord
   belongs_to :manager, class_name: "Employee", optional: true
 
   enum role: ['default', 'hr_employee', 'manager', 'admin']
+
+  def self.all_except_hr
+    where.not(department: 'Human Resources' )
+  end
 end
