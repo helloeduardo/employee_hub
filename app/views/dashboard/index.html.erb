@@ -8,3 +8,6 @@
 <% if @employee.manager %>
   <p>Manager: <%= @employee.manager.name %></p>
 <% end %>
+<% if current_manager? %>
+  <%= link_to 'View Supervisees', manager_employees_path %>
+<% end %>
