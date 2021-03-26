@@ -5,9 +5,15 @@
 <p>Annual Bonus: $<%= @employee.annual_bonus %></p>
 <p>Vacation Balance: <%= @employee.vacation_balance %> hours</p>
 <p>Department: <%= @employee.department %></p>
+
 <% if @employee.manager %>
   <p>Manager: <%= @employee.manager.name %></p>
 <% end %>
+
 <% if current_manager? %>
   <%= link_to 'View Supervisees', manager_employees_path %>
+<% end %>
+
+<% if current_admin? %>
+  <%= link_to 'View All Employees', admin_employees_path %>
 <% end %>
