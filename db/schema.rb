@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_26_052647) do
+ActiveRecord::Schema.define(version: 2021_03_26_061143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_03_26_052647) do
     t.bigint "manager_id"
     t.integer "salary"
     t.integer "role", default: 0
+    t.integer "annual_bonus"
     t.index ["manager_id"], name: "index_employees_on_manager_id"
   end
 
