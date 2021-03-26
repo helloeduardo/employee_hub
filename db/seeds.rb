@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Employee.destroy_all
+
+FactoryBot.create(:employee, email: 'employee@example.com', password: 'employee')
