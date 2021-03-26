@@ -5,6 +5,11 @@ FactoryBot.define do
     password { Faker::Internet.email }
     department { Faker::Commerce.department }
     salary { rand(45..130) * 1000 }
+    annual_bonus { rand(1..9) * 1000 }
     vacation_balance { Faker::Number.decimal(l_digits: 3, r_digits: 1) }
+
+    trait :with_manager do
+      manager_id { create(:employee).id }
+    end
   end
 end
