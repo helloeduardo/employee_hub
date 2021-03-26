@@ -6,7 +6,7 @@ describe Employee do
   end
 
   describe "Relationship" do
-    it { should have_many(:subordinates) }
+    it { should have_many(:supervisees) }
     it { should belong_to(:manager).optional }
   end
 end

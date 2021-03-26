@@ -1,0 +1,10 @@
+<h1><%= current_employee.name %>'s Supervisees</h1>
+
+<ul>
+  <% @employees.each do |supervisee| %>
+    <li>
+      <p><%= supervisee.name %></p>
+      <p><%= link_to 'View details', manager_employee_path(supervisee.id) %></p>
+    </li>
+  <% end %>
+</ul>

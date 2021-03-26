@@ -4,7 +4,7 @@ class Employee < ApplicationRecord
   validates :email, uniqueness: true, presence: true
   validates :name, presence: true
 
-  has_many :subordinates, class_name: "Employee",
+  has_many :supervisees, class_name: "Employee",
                           foreign_key: "manager_id"
 
   belongs_to :manager, class_name: "Employee", optional: true

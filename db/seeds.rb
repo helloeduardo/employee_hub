@@ -9,3 +9,8 @@
 Employee.destroy_all
 
 FactoryBot.create(:employee, email: 'employee@example.com', password: 'employee')
+
+manager = FactoryBot.create(:manager, email: 'manager@example.com', password: 'manager')
+
+FactoryBot.create(:employee, manager: manager)
+FactoryBot.create(:employee, manager: manager)

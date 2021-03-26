@@ -11,5 +11,9 @@ FactoryBot.define do
     trait :with_manager do
       manager_id { create(:employee).id }
     end
+
+    factory :manager do
+      role { 2 }
+    end
   end
 end
