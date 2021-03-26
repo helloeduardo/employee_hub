@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   namespace :manager do
     resources :employees, only: [:index, :show, :edit, :update]
   end
+
+  namespace :admin do
+    resources :employees, only: [:index, :show, :edit, :update]
+  end
 end
