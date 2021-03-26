@@ -14,3 +14,5 @@ manager = FactoryBot.create(:manager, email: 'manager@example.com', password: 'm
 
 FactoryBot.create(:employee, manager: manager)
 FactoryBot.create(:employee, manager: manager)
+
+admin = FactoryBot.create(:admin, email:'admin@example.com', password:'admin')
