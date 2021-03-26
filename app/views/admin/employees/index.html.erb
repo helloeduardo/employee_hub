@@ -1,0 +1,10 @@
+<h1>All Employees</h1>
+
+<ul>
+  <% @employees.each do |employee| %>
+    <li>
+      <p><%= employee.name %></p>
+      <p><%= link_to 'View details', admin_employee_path(employee.id) %></p>
+    </li>
+  <% end %>
+</ul>
