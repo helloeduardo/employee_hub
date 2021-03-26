@@ -10,6 +10,16 @@
   </head>
 
   <body>
+    <nav>
+      <% if current_employee %>
+        <p><%= link_to "Logout", "/logout" %></p>
+      <% end %>
+    </nav>
+
+    <% flash.each do |type, message| %>
+      <p><%= message %></p>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>
