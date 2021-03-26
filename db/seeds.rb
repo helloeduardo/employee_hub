@@ -8,7 +8,7 @@
 
 Employee.destroy_all
 
-FactoryBot.create(:employee, email: 'employee@example.com', password: 'employee')
+employee= FactoryBot.create(:employee, email: 'employee@example.com', password: 'employee')
 
 manager = FactoryBot.create(:manager, email: 'manager@example.com', password: 'manager')
 
@@ -16,3 +16,8 @@ FactoryBot.create(:employee, manager: manager)
 FactoryBot.create(:employee, manager: manager)
 
 admin = FactoryBot.create(:admin, email:'admin@example.com', password:'admin')
+
+FactoryBot.create(:hr_employee)
+FactoryBot.create(:hr_employee)
+
+hr = FactoryBot.create(:hr_employee, email:'hr@example.com', password:'hr')
